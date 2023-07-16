@@ -1,0 +1,50 @@
+#
+# https://docs.linuxserver.io/images/docker-swag
+#
+--- 
+version: '3.7'
+services:
+  swag:
+    image: lscr.io/linuxserver/swag:latest
+    container_name: swag
+    cap_add:
+      - NET_ADMIN
+    env_file: stack.env #used by portainer
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - URL=${URL}
+      - VALIDATION=${VALIDATION}
+      - SUBDOMAINS=${SUBDOMAINS} #optional
+      - CERTPROVIDER=${CERTPROVIDER} #optional
+      - DNSPLUGIN=${DNSPLUGIN} #optional
+      - PROPAGATION=${PROPAGATION} #optional
+      - EMAIL=${EMAIL} #optional
+      - ONLY_SUBDOMAINS=${ONLY_SUBDOMAINS} #optional
+      - EXTRA_DOMAINS=${EXTRA_DOMAINS} #optional
+      - STAGING=${STAGING} #optional
+      - DOCKER_MODS=${DOCKER_MODS}
+    volumes:
+      - ${LOCVOL1}swag:/data
+    ports:
+      - 443:443
+      - 80:80
+      # Add any other Stream port you want to expose
+      # - '21:21' # FTP
+      # - '2222:2222' # SSH 2222
+      # - '2223:2223' # SSH 2222
+      # - '2224:2224' # SSH 2222
+    networks:
+      default:
+      #directnet: # needed so the proxy service/app can have it's own IP
+        #ipv4_address: ${MACNETADDR}
+    restart: unless-stopped
+#
+networks:
+  default:
+    name: ${CONNET}
+    external: true
+  #directnet: # needed so the proxy service/app can have it's own IP
+    #name: ${MACNET}
+    #external: true
