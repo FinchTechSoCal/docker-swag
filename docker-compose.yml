@@ -16,14 +16,14 @@ services:
       - TZ=${TZ}
       - URL=${URL}
       - VALIDATION=${VALIDATION}
-      - SUBDOMAINS=${SUBDOMAINS} #optional
-      - CERTPROVIDER=${CERTPROVIDER} #optional
-      - DNSPLUGIN=${DNSPLUGIN} #optional
-      - PROPAGATION=${PROPAGATION} #optional
-      - EMAIL=${EMAIL} #optional
-      - ONLY_SUBDOMAINS=${ONLY_SUBDOMAINS} #optional
-      - EXTRA_DOMAINS=${EXTRA_DOMAINS} #optional
-      - STAGING=${STAGING} #optional
+      - SUBDOMAINS=${SUBDOMAINS}
+      - CERTPROVIDER=${CERTPROVIDER}
+      - DNSPLUGIN=${DNSPLUGIN}
+      - PROPAGATION=${PROPAGATION}
+      - EMAIL=${EMAIL}
+      - ONLY_SUBDOMAINS=${ONLY_SUBDOMAINS}
+      - EXTRA_DOMAINS=${EXTRA_DOMAINS}
+      - STAGING=${STAGING}
       - DOCKER_MODS=${DOCKER_MODS}
     volumes:
       - ${LOCVOL1}swag:/data
