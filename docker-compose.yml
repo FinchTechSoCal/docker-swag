@@ -7,8 +7,8 @@ services:
   swag:
     image: lscr.io/linuxserver/swag:latest
     container_name: swag
-    cap_add:
-      - NET_ADMIN
+    #cap_add:
+    #  - NET_ADMIN
     env_file: stack.env #used by portainer
     environment:
       - PUID=${PUID}
