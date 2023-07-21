@@ -3,6 +3,7 @@
 # https://github.com/linuxserver/docker-mods/tree/swag-auto-proxy
 # https://www.linuxserver.io/blog/zero-trust-hosting-and-reverse-proxy-via-cloudflare-swag-and-authelia
 #
+
 --- 
 version: '3.7'
 services:
